@@ -63,7 +63,7 @@ function pabellon_taxonomy()
         'rewrite'                    => $rewrite,
         'show_in_rest'               => true,
     );
-    register_taxonomy('pabellon', array('stand_cpt'), $args);
+    register_taxonomy('pabellon', array('stands'), $args);
 }
 add_action('init', 'pabellon_taxonomy', 0);
 
@@ -98,7 +98,7 @@ function stand_taxonomy()
         'items_list_navigation'      => __('Lista de navegacion', 'stand_domain'),
     );
     $rewrite = array(
-        'slug'                       => 'stands_tax',
+        'slug'                       => 'standtax',
         'with_front'                 => true,
         'hierarchical'               => false,
     );
@@ -113,7 +113,7 @@ function stand_taxonomy()
         'rewrite'                    => $rewrite,
         'show_in_rest'               => true,
     );
-    register_taxonomy('stand_tax', array('stand_cpt', 'product'), $args);
+    register_taxonomy('standtax', array('stands', 'product'), $args);
 }
 add_action('init', 'stand_taxonomy', 0);
 
@@ -153,7 +153,7 @@ function stand_post_type()
         'filter_items_list'     => __('Filtrar lista', 'stand_domain'),
     );
     $rewrite = array(
-        'slug'                  => 'stands',
+        'slug'                  => 'estands',
         'with_front'            => true,
         'pages'                 => true,
         'feeds'                 => true,
@@ -163,7 +163,7 @@ function stand_post_type()
         'description'           => __('Estands de pabellones', 'stand_domain'),
         'labels'                => $labels,
         'supports'              => array('title', 'editor', 'thumbnail', 'custom-fields'),
-        'taxonomies'            => array('stand_tax', 'pabellon'),
+        'taxonomies'            => array('standtax', 'pabellon'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -180,6 +180,6 @@ function stand_post_type()
         'capability_type'       => 'post',
         'show_in_rest'          => true,
     );
-    register_post_type('stand_cpt', $args);
+    register_post_type('stands', $args);
 }
 add_action('init', 'stand_post_type', 0);
