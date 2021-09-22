@@ -43,10 +43,10 @@
                             endif;
 
                             if (strlen($product_ids) == 0) :
-                                echo '<h1 class="single-title" style="margin: 4rem auto;">¡La empresa no tiene productos!</h1>';
+                                echo '<h1 class="single-title" style="margin: 4rem auto;">¡La empresa no tiene productos y/o servicios!</h1>';
 
                             else :
-                                echo '<h1 class="single-title" style="margin: 4rem auto;">Productos de la empresa</h1>';
+                                echo '<h1 class="single-title" style="margin: 4rem auto;">Productos y servicios de la empresa</h1>';
 
                                 echo do_shortcode('[products ids="' . $product_ids . '"]');
                             endif;
